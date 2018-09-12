@@ -124,15 +124,7 @@ public class PermissionsActivity extends QuickActivity {
             mFlagHasStoragePermission = true;
         }
 
-        if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
-            mNumPermissionsToRequest++;
-            mShouldRequestWriteStoragePermission = true;
-        } else {
-            mFlagHasWriteStoragePermission = true;
-        }
-
-        if (checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
+        if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
             mNumPermissionsToRequest++;
             mShouldRequestLocationPermission = true;
@@ -177,7 +169,7 @@ public class PermissionsActivity extends QuickActivity {
             permissionsRequestIndex++;
         }
         if (mShouldRequestLocationPermission) {
-            permissionsToRequest[permissionsRequestIndex] = Manifest.permission.ACCESS_COARSE_LOCATION;
+            permissionsToRequest[permissionsRequestIndex] = Manifest.permission.ACCESS_FINE_LOCATION;
             mIndexPermissionRequestLocation = permissionsRequestIndex;
         }
 
